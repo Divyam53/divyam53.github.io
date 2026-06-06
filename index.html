@@ -22,10 +22,11 @@
     <header>
         <h1>Divyam Jain</h1>
         <p><strong>Lead / Staff Software Engineer — Distributed & Scalable Systems</strong></p>
-        <p>8+ years of experience designing and scaling high-throughput commerce platforms and AI-native SaaS systems.</p>
+        <p>8+ years of experience designing and scaling high-throughput commerce platforms and AI-native SaaS systems. Proven technical
+leader with end-to-end ownership of architecture, reliability, cloud migrations, payments, security, and earlystage product-to-revenue execution.</p>
         <nav>
             <a href="mailto:divyamjain87@gmail.com">Email</a> | 
-            <a href="https://linkedin.com/in/your-profile-link">LinkedIn</a> | 
+            <a href="https://www.linkedin.com/in/divyam-jain-502067103">LinkedIn</a> | 
             <a href="https://github.com/Divyam53">GitHub</a> |
             <strong><a href="./resume.pdf">Download Resume (PDF)</a></strong>
         </nav>
@@ -45,6 +46,51 @@
                 <span class="tag">Kafka</span> <span class="tag">Redis/Dragonfly</span> <span class="tag">Terraform</span> <span class="tag">TDD</span>
             </div>
         </div>
+    </section>
+
+     <section id="technical-blog">
+        <h2>Technical Deep Dives (HLD & Case Studies)</h2>
+        <p><i>Detailed breakdowns of architectural decisions and system migrations I've led.</i></p>
+
+        <!-- Case Study 1 -->
+        <article class="post-card">
+            <h3>Scale: 15M Orders/Day Checkout Architecture</h3>
+            <p><span class="tag">System Design</span> <span class="tag">Concurrency</span> <span class="tag">Java</span></p>
+            <p><strong>The Challenge:</strong> Handling 2K RPS during peak mega-sale events with 99.9% uptime while maintaining strict inventory consistency.</p>
+            <details>
+                <summary>Read HLD Breakdown</summary>
+                <p><strong>Architecture:</strong> We implemented a multi-layer validation service and a Redis-backed distributed lock mechanism to prevent over-selling. For the ID generation, we utilized a custom <strong>Twitter Snowflake</strong> implementation to ensure globally unique, time-sortable order IDs.</p>
+                <ul>
+                    <li><strong>Solution:</strong> Migrated from a synchronous checkout flow to an event-driven architecture using Kafka for post-checkout processing.</li>
+                    <li><strong>Impact:</strong> Successfully handled the highest peak in company history with zero downtime.</li>
+                </ul>
+            </details>
+        </article>
+
+        <!-- Case Study 2 -->
+        <article class="post-card">
+            <h3>The $360K Migration: Redis to Dragonfly</h3>
+            <p><span class="tag">Infra Optimization</span> <span class="tag">DragonflyDB</span> <span class="tag">Cost Control</span></p>
+            <p><strong>The Challenge:</strong> Scaling our ranking infrastructure was becoming cost-prohibitive. We needed higher IOPS without exponentially increasing the cloud bill.</p>
+            <details>
+                <summary>Read Migration Strategy</summary>
+                <p><strong>Strategy:</strong> I led the evaluation of Dragonfly as a multi-threaded alternative to Redis. The migration required a zero-downtime shadow-write approach to validate data parity before the final switch.</p>
+                <ul>
+                    <li><strong>Metric:</strong> Achieved <span class="metric">3M+ IOPS</span>.</li>
+                    <li><strong>Result:</strong> Reduced caching infrastructure costs by <span class="metric">~91%</span>.</li>
+                </ul>
+            </details>
+        </article>
+
+        <!-- Case Study 3 -->
+        <article class="post-card">
+            <h3>Building an AI-Native ERP from Scratch</h3>
+            <p><span class="tag">Founding Engineer</span> <span class="tag">Multi-Tenancy</span> <span class="tag">Go</span></p>
+            <p><strong>The Challenge:</strong> Building Keychain-OS to handle complex supply chain workflows (PLM, traceability) with a multi-tenant architecture from day one.</p>
+            <details>
+                <summary>Read Design Details</summary>
+                <p><strong>Focus:</strong> I architected the core platform using a schema-per-tenant approach in PostgreSQL to ensure data isolation while building a unified LLM-integrated workflow engine for automated product onboarding.</p>
+            </article>
     </section>
 
     <section id="experience">
@@ -67,7 +113,12 @@
                 <li>Tech lead for checkout systems handling <span class="metric">15M+ orders/day</span> peak at <span class="metric">2K RPS</span> with 99.9%+ uptime.</li>
                 <li>Migrated ranking infrastructure to Dragonfly (Redis), achieving <span class="metric">3M+ IOPS</span> and reducing costs by <span class="metric">90% ($360K annually)</span>.</li>
                 <li>Led <strong>Prepaid Platform pod</strong>, increasing prepaid share from 5% to 20% through payment orchestration and bank-offer integrations.</li>
+                <li>Architected distributed platforms: <strong>Redis-based Cart (200K+ concurrent carts)</strong>, <strong>Twitter Snowflake</strong> for
+global order-ID generation</li>
+                <li>Drove Explore ranking initiatives with data science and product teams, improving CTR </li>
                 <li>Orchestrated zero-downtime migration of core services from <strong>EC2 → EKS → GKE</strong>.</li>
+                <li>On-call lead and war-room incident commander during sale days; owned SLOs, runbooks, mitigation
+strategies, and post-incident reviews</li>
             </ul>
         </article>
 
@@ -77,6 +128,7 @@
             <ul>
                 <li>Re-architected payment platform from PHP monolith to <strong>Java microservices</strong>, reducing production issues from 1000+ to <10.</li>
                 <li>Optimized APIs to reduce <strong>p99 latency by 50%</strong> and batch-job runtime from 1 hour to 2 minutes.</li>
+                <li>Built revenue features (Membership, Value Pass, Impulse Buy) increasing basket size and conversion.</li>
             </ul>
         </article>
     </section>
