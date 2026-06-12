@@ -710,3 +710,47 @@ footer.site-footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== Mermaid Diagram Styling ===== */
+.mermaid-wrapper {
+    margin-top: 24px;
+    padding: 20px;
+    background: rgba(11, 15, 25, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.mermaid-wrapper > div {
+    min-width: 0; /* Prevents flex/grid scaling overflows */
+    background: rgba(21, 27, 45, 0.3);
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.mermaid-wrapper h6 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-accent);
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.mermaid {
+    background: transparent !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive diagrams */
+@media (max-width: 800px) {
+    .mermaid-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

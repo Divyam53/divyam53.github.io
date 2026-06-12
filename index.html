@@ -7,6 +7,21 @@
     <!-- Favicon and SEO Tags -->
     <meta name="description" content="Portfolio of Divyam Jain, Lead Backend Engineer specializing in high-throughput distributed systems, commerce checkouts, database migrations, and AI-native ERP SaaS.">
     <link rel="stylesheet" href="styles.css">
+    <!-- Mermaid.js for beautiful architecture diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose',
+            themeVariables: {
+                background: '#151b2d',
+                primaryColor: '#1e253c',
+                primaryTextColor: '#f3f4f6',
+                lineColor: '#242c42'
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -146,6 +161,76 @@
                                     <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>90% reduction in cache nodes</span></li>
                                     <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>$360,000 saved annually</span></li>
                                 </ul>
+                            </div>
+                        </div>
+
+                        <!-- Architecture Diagrams -->
+                        <div class="mermaid-wrapper">
+                            <div>
+                                <h6>Feed Aggregator &amp; Cache Read/Write Flows</h6>
+                                <pre class="mermaid">
+graph TD
+    classDef main fill:#151b2d,stroke:#242c42,stroke-width:1px,color:#f3f4f6;
+    classDef realestate fill:#1e253c,stroke:#374363,stroke-width:1.5px,color:#fff;
+    classDef success fill:#10b981,stroke:#10b981,stroke-width:1.5px,color:#fff;
+
+    FA[Feed Aggregators]:::main --> PDP[PDP]:::realestate
+    FA --> HP[HomePage]:::realestate
+    FA --> SR[Search]:::realestate
+    FA --> CDP[CDP &amp; Collection]:::realestate
+    
+    PDP --> Feeds{Feeds}:::main
+    HP --> Feeds
+    SR --> Feeds
+    CDP --> Feeds
+    
+    Feeds --> OF[Organic Feed]:::main
+    Feeds --> AF[Ads Feed]:::main
+    Feeds --> NCF[New Catalog Feed]:::main
+    
+    PDP -.->|Is Budget Available?| RC[(Dragonfly / Redis Cluster)]:::success
+    HP -.->|Is Budget Available?| RC
+    SR -.->|Is Budget Available?| RC
+    CDP -.->|Is Budget Available?| RC
+    
+    FA -->|Kafka: Catalog_Seen| K[Kafka Topic]:::main
+    K --> CTSC[Catalog Testing Service Consumer]:::main
+    CTSC -->|Write Flow:<br/>1. Insert new catalogs with view-budget<br/>2. Reduce view-budget| RC
+                                </pre>
+                            </div>
+                            <div>
+                                <h6>Self-Hosted Dragonfly Sentinel Cluster (HA)</h6>
+                                <pre class="mermaid">
+graph LR
+    classDef main fill:#151b2d,stroke:#242c42,stroke-width:1px,color:#f3f4f6;
+    classDef sentinel fill:#6366f1,stroke:#818cf8,stroke-width:1px,color:#fff;
+    classDef primary fill:#10b981,stroke:#10b981,stroke-width:1.5px,color:#fff;
+    classDef replica fill:#1e253c,stroke:#374363,stroke-width:1.5px,color:#f3f4f6;
+
+    subgraph Sentinels [Sentinel Cluster]
+        S1[Redis Sentinel 1]:::sentinel
+        S2[Redis Sentinel 2]:::sentinel
+        S3[Redis Sentinel 3]:::sentinel
+    end
+    
+    S1 <--> S2
+    S2 <--> S3
+    
+    S1 --> Primary[Primary Node]:::primary
+    S2 --> Primary
+    S3 --> Primary
+    
+    S1 --> R1[Replica Node 1]:::replica
+    S2 --> R1
+    S3 --> R1
+    
+    S1 --> R2[Replica Node 2]:::replica
+    S2 --> R2
+    S3 --> R2
+
+    Primary ==>|Replication| R1
+    Primary ==>|Replication| R2
+                                </pre>
                             </div>
                         </div>
                     </div>
@@ -391,6 +476,10 @@
                     targetDetail.removeAttribute('open');
                 } else {
                     targetDetail.setAttribute('open', '');
+                    // Force resize event so Mermaid diagrams recalculate dimensions
+                    setTimeout(() => {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 50);
                 }
             });
         });
