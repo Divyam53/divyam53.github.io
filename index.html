@@ -3,154 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divyam Jain | Lead Backend Engineer</title>
-    <!-- Minimalist Technical CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
-    <style>
-        body { max-width: 900px; margin: auto; padding: 2rem; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .tag { background: #2c3e50; color: #ecf0f1; padding: 3px 10px; border-radius: 4px; font-size: 0.85rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
-        .metric { color: #00ff88; font-weight: bold; }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-        section { margin-bottom: 3rem; }
-        h2 { border-bottom: 1px solid #444; padding-bottom: 10px; }
-        .date { float: right; font-size: 0.9rem; color: #888; }
-    </style>
+    <title>Divyam Jain | Lead Backend & Distributed Systems Engineer</title>
+    <!-- Favicon and SEO Tags -->
+    <meta name="description" content="Portfolio of Divyam Jain, Lead Backend Engineer specializing in high-throughput distributed systems, commerce checkouts, database migrations, and AI-native ERP SaaS.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <h1>Divyam Jain</h1>
-        <p><strong>Lead / Staff Software Engineer — Distributed & Scalable Systems</strong></p>
-        <p>8+ years of experience designing and scaling high-throughput commerce platforms and AI-native SaaS systems. Proven technical
-leader with end-to-end ownership of architecture, reliability, cloud migrations, payments, security, and earlystage product-to-revenue execution.</p>
-        <nav>
-            <a href="mailto:divyamjain87@gmail.com">Email</a> | 
-            <a href="https://www.linkedin.com/in/divyam-jain-502067103">LinkedIn</a> | 
-            <a href="https://github.com/Divyam53">GitHub</a> |
-            <strong><a href="./resume.pdf">Download Resume (PDF)</a></strong>
-        </nav>
+    <!-- Sticky Navigation Header -->
+    <header class="nav-header">
+        <div class="container">
+            <div class="nav-brand">DIVYAM JAIN</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#deep-dives">Deep Dives</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="./resume.pdf" class="nav-resume-btn" download>Download CV</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="expertise">
-        <h2>Architecture & Systems at Scale</h2>
-        <div class="grid">
-            <div>
-                <h4>Languages & Platforms</h4>
-                <span class="tag">Java</span> <span class="tag">Go</span> <span class="tag">Python</span> <span class="tag">SQL</span> <br>
-                <span class="tag">Distributed Systems</span> <span class="tag">Microservices</span> <span class="tag">LLM Integration</span>
+    <!-- Main Content Container -->
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero-wrapper" id="about">
+            <div class="badge-global">
+                <span class="dot"></span>
+                Open to Global Opportunities & Relocation
             </div>
-            <div>
-                <h4>Infrastructure & Practices</h4>
-                <span class="tag">AWS / GCP</span> <span class="tag">Kubernetes</span> <span class="tag">Docker</span> <br>
-                <span class="tag">Kafka</span> <span class="tag">Redis/Dragonfly</span> <span class="tag">Terraform</span> <span class="tag">TDD</span>
+            <h1 class="hero-name">Divyam Jain</h1>
+            <h2 class="hero-title-text">Lead / Staff Software Engineer — Distributed & Scalable Systems</h2>
+            <p class="hero-bio">
+                8+ years of engineering expertise designing, scaling, and optimizing high-throughput commerce checkouts, payment orchestration systems, and multi-tenant SaaS platforms. Expert in microservice architecture, database migrations, cost reduction, and early-stage MVP-to-revenue execution.
+            </p>
+            <div class="hero-contact">
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:divyamjain87@gmail.com">divyamjain87@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    <a href="https://www.linkedin.com/in/divyam-jain-502067103" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    <a href="https://github.com/Divyam53" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <!-- Key Backend Metric Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15M+</div>
+                    <div class="stat-label">Daily Peak Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number green">$360K</div>
+                    <div class="stat-label">Annual Cloud Savings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3M+</div>
+                    <div class="stat-label">IOPS Caching Node</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">p99 Latency Cut</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Deep Dives (HLD & Case Studies) -->
+        <section id="deep-dives">
+            <h2 class="section-title">Architectural Deep Dives (HLD)</h2>
+            <div class="case-studies-list">
+                
+                <!-- Case Study 1 -->
+                <details class="case-card" open>
+                    <summary class="case-summary">
+                        <div class="case-title-area">
+                            <span class="case-title">15M Orders/Day Checkout Core Engine</span>
+                            <div class="case-tags">
+                                <span class="pill-tag accent">Java</span>
+                                <span class="pill-tag accent">Kafka</span>
+                                <span class="pill-tag">Distributed Locks</span>
+                                <span class="pill-tag">Twitter Snowflake</span>
+                            </div>
+                        </div>
+                        <svg class="case-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="case-content">
+                        <div class="case-content-grid">
+                            <div class="case-content-left">
+                                <p><strong>Background:</strong> At Meesho, peak mega-sale events drove transactional traffic up to <span class="metric-highlight">2,000 RPS</span>. The legacy synchronous checkout process faced latency bottlenecks and could not prevent inventory over-selling under high concurrency.</p>
+                                <p><strong>System Design:</strong> Developed an asynchronous checkout architecture. Migrated checkout processing from a blocking synchronous API to an event-driven flow using <strong>Kafka</strong> for order processing pipelines.</p>
+                                <p><strong>Concurrency & Integrity:</strong> Implemented a multi-layered check logic backed by a distributed locking mechanism on Redis to guarantee strict inventory consistency (preventing over-selling). Integrated a custom <strong>Twitter Snowflake</strong> ID generation service to issue globally unique, time-sortable Order IDs without database synchronization overhead.</p>
+                            </div>
+                            <div class="case-content-right">
+                                <h5>Metrics & Impact</h5>
+                                <ul>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Zero overselling incidents</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>99.9%+ availability</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>2,000 RPS transaction scale</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Case Study 2 -->
+                <details class="case-card">
+                    <summary class="case-summary">
+                        <div class="case-title-area">
+                            <span class="case-title">The $360K Cache Cost Migration: Redis to Dragonfly</span>
+                            <div class="case-tags">
+                                <span class="pill-tag accent">DragonflyDB</span>
+                                <span class="pill-tag accent">Redis</span>
+                                <span class="pill-tag">Infra Cost Control</span>
+                                <span class="pill-tag">Zero-Downtime Migration</span>
+                            </div>
+                        </div>
+                        <svg class="case-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="case-content">
+                        <div class="case-content-grid">
+                            <div class="case-content-left">
+                                <p><strong>Background:</strong> Meesho's ranking and exploration engine caches large amounts of vector-like product feeds. As traffic grew, the Redis caching layer became a massive bottleneck and driving prohibitively high memory footprint and infrastructure costs.</p>
+                                <p><strong>Technical Strategy:</strong> Led the evaluation, profiling, and production migration from Redis to <strong>DragonflyDB</strong>, a multi-threaded Redis-compatible in-memory store. Evaluated thread synchronization, pipeline performance, and latency under peak load.</p>
+                                <p><strong>Data Parity Validation:</strong> Implemented a zero-downtime migration protocol utilizing a shadow-write setup. Dual-wrote all cache transactions, validated data parity asynchronously, and shifted read traffic only after ensuring perfect key-value alignment.</p>
+                            </div>
+                            <div class="case-content-right">
+                                <h5>Metrics & Impact</h5>
+                                <ul>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>3M+ IOPS caching throughput</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>90% reduction in cache nodes</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>$360,000 saved annually</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Case Study 3 -->
+                <details class="case-card">
+                    <summary class="case-summary">
+                        <div class="case-title-area">
+                            <span class="case-title">Multi-Tenant AI-Native ERP Architecture</span>
+                            <div class="case-tags">
+                                <span class="pill-tag accent">Go (Golang)</span>
+                                <span class="pill-tag accent">PostgreSQL</span>
+                                <span class="pill-tag">SAML / OAuth SSO</span>
+                                <span class="pill-tag">Tenant Isolation</span>
+                            </div>
+                        </div>
+                        <svg class="case-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="case-content">
+                        <div class="case-content-grid">
+                            <div class="case-content-left">
+                                <p><strong>Background:</strong> Building Keychain-OS and Keychain360 from the ground up required a secure, highly scalable microservices architecture that complies with enterprise requirements for data isolation, SSO, and audit tracking.</p>
+                                <p><strong>Database Partitioning:</strong> Implemented a schema-per-tenant isolation model on <strong>PostgreSQL</strong>. Programmatically generated schema configurations at tenant onboarding time to prevent cross-tenant data leaks and allow customized compliance rules.</p>
+                                <p><strong>Enterprise SSO & Compliance:</strong> Built and shipped identity federation integration (SAML 2.0 & OAuth) supporting secure single sign-on for global supply-chain brands. Constructed fine-grained Role-Based Access Control (RBAC) and immutable audit log pipelines to satisfy <strong>SOC2</strong> security compliance standards.</p>
+                            </div>
+                            <div class="case-content-right">
+                                <h5>Metrics & Impact</h5>
+                                <ul>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>SOC2-ready security infrastructure</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Strict logical data isolation</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Seamless SAML brand onboarding</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                
+                <!-- Keychain -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div class="company-title">Keychain <span>— Distributed Supply Chain SaaS</span></div>
+                        <span class="job-date">Feb 2025 – Present</span>
+                    </div>
+                    <div class="job-role">Senior Backend Engineer / Tech Lead</div>
+                    <ul class="job-desc">
+                        <li>Founding backend lead for <strong>Keychain-OS</strong> (cloud ERP) and <strong>Keychain360</strong> (Supply Chain Visibility platform), architecting a secure, multi-tenant backend built for PLM workflows, supplier analytics, and traceability.</li>
+                        <li>Designed and shipped enterprise-grade **SAML 2.0 & OAuth SSO** identity federation, role-based access control (RBAC), and immutable audit logs ensuring <strong>SOC2 compliance readiness</strong>.</li>
+                        <li>Built custom backend workflow engines integrated with LLMs to automate supplier intelligence, ingredient compliance onboarding, and document parsing.</li>
+                        <li>Defined the technical roadmap and led execution for a <strong>7-engineer team</strong>; established engineering standards, microservice design reviews, and high code quality thresholds.</li>
+                        <li>Successfully managed engineering deliverables across distributed teams in **US and India time zones**, proving strong remote execution and cross-continental alignment.</li>
+                    </ul>
+                </div>
+
+                <!-- Meesho -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div class="company-title">Meesho <span>— High-Scale Social Commerce Platform</span></div>
+                        <span class="job-date">Mar 2021 – Feb 2025</span>
+                    </div>
+                    <div class="job-role">SDE-3 (Jul 2022 – Feb 2025) &bull; SDE-2 (Mar 2021 – Jun 2022)</div>
+                    <ul class="job-desc">
+                        <li>Architected checkout and cart pipelines that supported up to <span class="metric-highlight">15M+ transactions/day</span> and 10M DAU at a peak traffic of <span class="metric-highlight">2,000 RPS</span> while maintaining <span class="metric-highlight">99.9%+ uptime</span>.</li>
+                        <li>Led migration of Explore feed ranking/personalization store to **Dragonfly** (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
+                        <li>Built distributed backend systems including a Redis-backed cart microservice managing <span class="metric-highlight">200K+ concurrent carts</span>, a Multi-Supplier Cart engine, and a custom **Twitter Snowflake** ID generator.</li>
+                        <li>Directed the Prepaid Payments pod (4 SDEs); redesigned transaction gateways and optimized bank-offers orchestration to lift Meesho's prepaid checkout share from <strong>5% to 20%</strong>.</li>
+                        <li>Managed zero-downtime microservices container infrastructure migrations across cloud platforms: <strong>AWS EC2 &rarr; AWS EKS &rarr; Google GKE</strong>.</li>
+                        <li>Acted as primary on-call Lead and War-Room Incident Commander for mega-sale days; owned system health, latency SLOs, and root-cause analyses (RCAs).</li>
+                    </ul>
+                </div>
+
+                <!-- Milkbasket -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div class="company-title">Milkbasket <span>— Daily Micro-Delivery Grocery App</span></div>
+                        <span class="job-date">Sep 2019 – Mar 2021</span>
+                    </div>
+                    <div class="job-role">SDE-2 &bull; SDE-1</div>
+                    <ul class="job-desc">
+                        <li>Deconstructed PHP monolith payment processing module, rebuilding it into a performant <strong>Java microservices platform</strong>; integrated payments via Juspay, AutoPay, wallets, and refunds orchestration.</li>
+                        <li>Optimized backend bottlenecks, reducing **p99 API latencies by 50%** and shrinking critical scheduled batch runtimes from <strong>60 minutes to 2 minutes</strong>.</li>
+                        <li>Redesigned billing recharges and transactional flows, slashing production bugs from 1,000+ per month to <span class="metric-highlight">&lt;10</span>.</li>
+                        <li>Built business-driving subscription features (Membership, Value Pass, Impulse Buy) which directly grew cart conversions.</li>
+                    </ul>
+                </div>
+
+                <!-- ShopClues -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div class="company-title">ShopClues <span>— E-commerce Marketplace</span></div>
+                        <span class="job-date">Sep 2018 – Sep 2019</span>
+                    </div>
+                    <div class="job-role">Software Engineer</div>
+                    <ul class="job-desc">
+                        <li>Developed the backend core for merchant settlements, billing engines, and payouts (Express Payout, Wallet, Net Payout calculation).</li>
+                        <li>Designed and maintained high-throughput, horizontally scalable REST APIs handling reseller services and marketplace fulfillment fee evaluations.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical Skills / Competencies -->
+        <section id="skills">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-wrapper">
+                
+                <div class="skills-category">
+                    <h4>Core Backend Languages</h4>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Go (Golang)</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL (PostgreSQL / MySQL)</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Distributed Systems & Architecture</h4>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">Microservice Architecture</span>
+                        <span class="skill-tag">Event-Driven Design</span>
+                        <span class="skill-tag">API Orchestration</span>
+                        <span class="skill-tag">Distributed Locking & Concurrency</span>
+                        <span class="skill-tag">Idempotent Transactions</span>
+                        <span class="skill-tag">Snowflake Unique ID Generation</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Databases, Caching & Pipelines</h4>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">PostgreSQL (Schema-per-tenant)</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Redis & DragonflyDB</span>
+                        <span class="skill-tag">Apache Kafka</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Cloud, Infra & Practices</h4>
+                    <div class="skills-tags-container">
+                        <span class="skill-tag">Kubernetes (EKS / GKE)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS & GCP</span>
+                        <span class="skill-tag">gRPC & Protobuf</span>
+                        <span class="skill-tag">SAML 2.0 / OAuth SSO</span>
+                        <span class="skill-tag">SOC2 Compliance Readiness</span>
+                        <span class="skill-tag">TDD & CI/CD Pipelines</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Leadership & Organizational Impact -->
+        <section id="leadership">
+            <h2 class="section-title">Leadership & Impact</h2>
+            <div class="leadership-grid">
+                
+                <div class="leadership-card">
+                    <div class="leadership-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <div class="leadership-text">
+                        <h4>Active Mentorship & Promotions</h4>
+                        <p>Mentored and guided software engineers at Meesho and Keychain. Directly supported and coached <span class="metric-highlight">5 engineers through promotions</span>, including SDE-1 &rarr; SDE-2, SDE-2 &rarr; SDE-3, and QA &rarr; SDE tracks.</p>
+                    </div>
+                </div>
+
+                <div class="leadership-card">
+                    <div class="leadership-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                    </div>
+                    <div class="leadership-text">
+                        <h4>Technical Hiring & Culture</h4>
+                        <p>Conducted <span class="metric-highlight">100+ technical engineering interviews</span>. Revamped recruitment pipelines by introducing standardized machine-coding assessments, creating shared interview question banks, and setting a high engineering hiring bar.</p>
+                    </div>
+                </div>
+
+                <div class="leadership-card">
+                    <div class="leadership-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div class="leadership-text">
+                        <h4>System Reliability & Incident Command</h4>
+                        <p>Served as war-room incident commander during large-scale commerce sale events. Owned service SLOs, ran on-call rotations, drafted troubleshooting runbooks, and established post-incident review (RCA) loops to drive system self-healing.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Divyam Jain. Built using semantic HTML5 &amp; custom CSS variables.</p>
+            <p><small>Designed to showcase distributed systems, performance metrics, and cost optimization engineering.</small></p>
+            <div class="footer-nav">
+                <a href="mailto:divyamjain87@gmail.com">Email</a> &bull;
+                <a href="https://www.linkedin.com/in/divyam-jain-502067103" target="_blank">LinkedIn</a> &bull;
+                <a href="https://github.com/Divyam53" target="_blank">GitHub</a>
             </div>
         </div>
-    </section>
-
-     <section id="technical-blog">
-        <h2>Technical Deep Dives (HLD & Case Studies)</h2>
-        <p><i>Detailed breakdowns of architectural decisions and system migrations I've led.</i></p>
-
-        <!-- Case Study 1 -->
-        <article class="post-card">
-            <h3>Scale: 15M Orders/Day Checkout Architecture</h3>
-            <p><span class="tag">System Design</span> <span class="tag">Concurrency</span> <span class="tag">Java</span></p>
-            <p><strong>The Challenge:</strong> Handling 2K RPS during peak mega-sale events with 99.9% uptime while maintaining strict inventory consistency.</p>
-            <details>
-                <summary>Read HLD Breakdown</summary>
-                <p><strong>Architecture:</strong> We implemented a multi-layer validation service and a Redis-backed distributed lock mechanism to prevent over-selling. For the ID generation, we utilized a custom <strong>Twitter Snowflake</strong> implementation to ensure globally unique, time-sortable order IDs.</p>
-                <ul>
-                    <li><strong>Solution:</strong> Migrated from a synchronous checkout flow to an event-driven architecture using Kafka for post-checkout processing.</li>
-                    <li><strong>Impact:</strong> Successfully handled the highest peak in company history with zero downtime.</li>
-                </ul>
-            </details>
-        </article>
-
-        <!-- Case Study 2 -->
-        <article class="post-card">
-            <h3>The $360K Migration: Redis to Dragonfly</h3>
-            <p><span class="tag">Infra Optimization</span> <span class="tag">DragonflyDB</span> <span class="tag">Cost Control</span></p>
-            <p><strong>The Challenge:</strong> Scaling our ranking infrastructure was becoming cost-prohibitive. We needed higher IOPS without exponentially increasing the cloud bill.</p>
-            <details>
-                <summary>Read Migration Strategy</summary>
-                <p><strong>Strategy:</strong> I led the evaluation of Dragonfly as a multi-threaded alternative to Redis. The migration required a zero-downtime shadow-write approach to validate data parity before the final switch.</p>
-                <ul>
-                    <li><strong>Metric:</strong> Achieved <span class="metric">3M+ IOPS</span>.</li>
-                    <li><strong>Result:</strong> Reduced caching infrastructure costs by <span class="metric">~91%</span>.</li>
-                </ul>
-            </details>
-        </article>
-
-        <!-- Case Study 3 -->
-        <article class="post-card">
-            <h3>Building an AI-Native ERP from Scratch</h3>
-            <p><span class="tag">Founding Engineer</span> <span class="tag">Multi-Tenancy</span> <span class="tag">Go</span></p>
-            <p><strong>The Challenge:</strong> Building Keychain-OS to handle complex supply chain workflows (PLM, traceability) with a multi-tenant architecture from day one.</p>
-            <details>
-                <summary>Read Design Details</summary>
-                <p><strong>Focus:</strong> I architected the core platform using a schema-per-tenant approach in PostgreSQL to ensure data isolation while building a unified LLM-integrated workflow engine for automated product onboarding.</p>
-            </article>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        
-        <article>
-            <h3>Keychain <span class="date">Feb 2025 — Present</span></h3>
-            <p><strong>Lead Backend Engineer / Tech Lead — AI ERP & Supply Chain SaaS</strong></p>
-            <ul>
-                <li>Founding backend lead for <strong>Keychain-OS</strong> and <strong>Keychain360</strong>, architecting a multi-tenant platform supporting PLM workflows, RBAC, and LLM-integrated operational flows.</li>
-                <li>Shipped enterprise <strong>SSO and Identity Federation (SAML + OAuth)</strong> for brand onboarding.</li>
-                <li>Owned technical roadmap for a <strong>7-engineer team</strong>, ensuring high standards for scalability and engineering quality.</li>
-            </ul>
-        </article>
-
-        <article>
-            <h3>Meesho <span class="date">Mar 2021 — Feb 2025</span></h3>
-            <p><strong>SDE-3 / Tech Lead</strong></p>
-            <ul>
-                <li>Tech lead for checkout systems handling <span class="metric">15M+ orders/day</span> peak at <span class="metric">2K RPS</span> with 99.9%+ uptime.</li>
-                <li>Migrated ranking infrastructure to Dragonfly (Redis), achieving <span class="metric">3M+ IOPS</span> and reducing costs by <span class="metric">90% ($360K annually)</span>.</li>
-                <li>Led <strong>Prepaid Platform pod</strong>, increasing prepaid share from 5% to 20% through payment orchestration and bank-offer integrations.</li>
-                <li>Architected distributed platforms: <strong>Redis-based Cart (200K+ concurrent carts)</strong>, <strong>Twitter Snowflake</strong> for
-global order-ID generation</li>
-                <li>Drove Explore ranking initiatives with data science and product teams, improving CTR </li>
-                <li>Orchestrated zero-downtime migration of core services from <strong>EC2 → EKS → GKE</strong>.</li>
-                <li>On-call lead and war-room incident commander during sale days; owned SLOs, runbooks, mitigation
-strategies, and post-incident reviews</li>
-            </ul>
-        </article>
-
-        <article>
-            <h3>Milkbasket <span class="date">Sep 2019 — Mar 2021</span></h3>
-            <p><strong>SDE-2</strong></p>
-            <ul>
-                <li>Re-architected payment platform from PHP monolith to <strong>Java microservices</strong>, reducing production issues from 1000+ to <10.</li>
-                <li>Optimized APIs to reduce <strong>p99 latency by 50%</strong> and batch-job runtime from 1 hour to 2 minutes.</li>
-                <li>Built revenue features (Membership, Value Pass, Impulse Buy) increasing basket size and conversion.</li>
-            </ul>
-        </article>
-    </section>
-
-    <section id="leadership">
-        <h2>Leadership & Impact</h2>
-        <ul>
-            <li><strong>Mentorship:</strong> Led and mentored engineers across Meesho and Keychain; <span class="metric">5 mentees promoted</span> across two cycles.</li>
-            <li><strong>Technical Hiring:</strong> Conducted <span class="metric">100+ interviews</span>; introduced machine-coding rounds and built company-wide question banks.</li>
-        </ul>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>Indian Institute of Information Technology, Kota</strong> — B.Tech in Computer Science (2014 – 2018) <br>
-        GPA: 7.95 / 10</p>
-    </section>
-
-    <footer>
-        <hr>
-        <p><small>Senior Backend Portfolio &bull; Built with Minimalist Water.css &bull; 2026</small></p>
     </footer>
+
+    <!-- Client-side Interactive Logic -->
+    <script>
+        // Accordion behavior for case studies
+        const details = document.querySelectorAll('details.case-card');
+        details.forEach((targetDetail) => {
+            const summary = targetDetail.querySelector('summary');
+            summary.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = targetDetail.hasAttribute('open');
+                
+                // Close all other details
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute('open');
+                    }
+                });
+
+                // Toggle target
+                if (isOpen) {
+                    targetDetail.removeAttribute('open');
+                } else {
+                    targetDetail.setAttribute('open', '');
+                }
+            });
+        });
+
+        // Active Navigation Highlighting on Scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function highlightNav() {
+            let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 150;
+                const sectionId = current.getAttribute('id');
+                const link = document.querySelector('.nav-links a[href*=' + sectionId + ']');
+                
+                if (link) {
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNav);
+        window.addEventListener('load', highlightNav);
+    </script>
 
 </body>
 </html>
