@@ -1,23 +1,13 @@
 /* Import Premium Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-/* ===== Core Variables & Theme ===== */
+/* ===== Core Variables & Theme Support ===== */
+/* Common constants identical across both themes */
 :root {
-    --bg-main: #0b0f19;
-    --bg-card: #151b2d;
-    --bg-card-hover: #1e253c;
-    --border-color: #242c42;
-    --border-hover: #374363;
-    
     --primary: #6366f1; /* Indigo */
     --primary-light: #818cf8;
     --secondary: #a855f7; /* Purple */
     --secondary-light: #c084fc;
-    
-    --text-primary: #f3f4f6; /* Off-white */
-    --text-title: #ffffff;
-    --text-muted: #9ca3af; /* Cool Gray */
-    --text-accent: #3b82f6; /* Electric Blue */
     
     --success: #10b981; /* Mint Green */
     --success-bg: rgba(16, 185, 129, 0.1);
@@ -26,6 +16,69 @@
     --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --border-radius: 12px;
     --max-width: 1000px;
+}
+
+/* System Default Theme Mapping (Light or Dark depending on OS) */
+:root {
+    @media (prefers-color-scheme: dark) {
+        --bg-main: #0b0f19;
+        --bg-card: #151b2d;
+        --bg-card-hover: #1e253c;
+        --border-color: #242c42;
+        --border-hover: #374363;
+        --text-primary: #f3f4f6;
+        --text-title: #ffffff;
+        --text-muted: #9ca3af;
+        --text-accent: #818cf8;
+        --bg-badge: rgba(99, 102, 241, 0.08);
+        --border-badge: rgba(99, 102, 241, 0.25);
+        --bg-pill: rgba(36, 44, 66, 0.6);
+    }
+    @media (prefers-color-scheme: light) {
+        --bg-main: #f9fafb;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f3f4f6;
+        --border-color: #e5e7eb;
+        --border-hover: #d1d5db;
+        --text-primary: #374151;
+        --text-title: #111827;
+        --text-muted: #6b7280;
+        --text-accent: #4f46e5;
+        --bg-badge: rgba(99, 102, 241, 0.05);
+        --border-badge: rgba(99, 102, 241, 0.15);
+        --bg-pill: rgba(229, 231, 235, 0.6);
+    }
+}
+
+/* Explicit Theme Overrides */
+[data-theme="dark"] {
+    --bg-main: #0b0f19;
+    --bg-card: #151b2d;
+    --bg-card-hover: #1e253c;
+    --border-color: #242c42;
+    --border-hover: #374363;
+    --text-primary: #f3f4f6;
+    --text-title: #ffffff;
+    --text-muted: #9ca3af;
+    --text-accent: #818cf8;
+    --bg-badge: rgba(99, 102, 241, 0.08);
+    --border-badge: rgba(99, 102, 241, 0.25);
+    --bg-pill: rgba(36, 44, 66, 0.6);
+}
+
+[data-theme="light"] {
+    --bg-main: #f9fafb;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f3f4f6;
+    --border-color: #e5e7eb;
+    --border-hover: #d1d5db;
+    --text-primary: #374151;
+    --text-title: #111827;
+    --text-muted: #6b7280;
+    --text-accent: #4f46e5;
+    --bg-badge: rgba(99, 102, 241, 0.05);
+    --border-badge: rgba(99, 102, 241, 0.15);
+    --bg-pill: rgba(229, 231, 235, 0.6);
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -115,7 +168,8 @@ section:last-of-type {
 header.nav-header {
     position: sticky;
     top: 0;
-    background: rgba(11, 15, 25, 0.85);
+    background: var(--bg-main);
+    opacity: 0.98;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     z-index: 100;
@@ -126,6 +180,31 @@ header.nav-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Theme Switcher Styling */
+.theme-switch-wrapper {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+#theme-select {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+#theme-select:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
 }
 
 .nav-brand {
@@ -177,8 +256,8 @@ header.nav-header .container {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(99, 102, 241, 0.08);
-    border: 1px solid rgba(99, 102, 241, 0.25);
+    background: var(--bg-badge);
+    border: 1px solid var(--border-badge);
     padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -347,7 +426,7 @@ header.nav-header .container {
 }
 
 .pill-tag {
-    background: rgba(36, 44, 66, 0.6);
+    background: var(--bg-pill);
     border: 1px solid var(--border-color);
     color: var(--text-muted);
     padding: 3px 10px;
@@ -358,8 +437,8 @@ header.nav-header .container {
 
 .pill-tag.accent {
     color: var(--primary-light);
-    border-color: rgba(99, 102, 241, 0.3);
-    background: rgba(99, 102, 241, 0.05);
+    border-color: var(--border-badge);
+    background: var(--bg-badge);
 }
 
 .case-toggle-icon {
@@ -711,31 +790,33 @@ footer.site-footer p {
     }
 }
 
-/* ===== Mermaid Diagram Styling ===== */
 .mermaid-wrapper {
     margin-top: 24px;
-    padding: 20px;
+    padding: 24px;
     background: rgba(11, 15, 25, 0.4);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr; /* Stack vertically for readability */
+    gap: 32px;
 }
 
 .mermaid-wrapper > div {
-    min-width: 0; /* Prevents flex/grid scaling overflows */
+    min-width: 0;
     background: rgba(21, 27, 45, 0.3);
-    padding: 16px;
+    padding: 24px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .mermaid-wrapper h6 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-accent);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
     text-transform: uppercase;
@@ -746,11 +827,11 @@ footer.site-footer p {
     background: transparent !important;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-/* Responsive diagrams */
-@media (max-width: 800px) {
-    .mermaid-wrapper {
-        grid-template-columns: 1fr;
-    }
+.mermaid svg {
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 250px;
 }

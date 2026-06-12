@@ -7,12 +7,30 @@
     <!-- Favicon and SEO Tags -->
     <meta name="description" content="Portfolio of Divyam Jain, Lead Backend Engineer specializing in high-throughput distributed systems, commerce checkouts, database migrations, and AI-native ERP SaaS.">
     <link rel="stylesheet" href="styles.css">
+    <!-- Early theme selection to prevent page flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'system';
+            if (savedTheme === 'system') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <!-- Mermaid.js for beautiful architecture diagrams -->
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        const getMermaidTheme = () => {
+            const saved = localStorage.getItem('theme') || 'system';
+            if (saved === 'system') {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+            }
+            return saved === 'dark' ? 'dark' : 'default';
+        };
         mermaid.initialize({
             startOnLoad: true,
-            theme: 'dark',
+            theme: getMermaidTheme(),
             securityLevel: 'loose',
             themeVariables: {
                 background: '#151b2d',
@@ -29,7 +47,7 @@
     <header class="nav-header">
         <div class="container">
             <div class="nav-brand">DIVYAM JAIN</div>
-            <nav>
+            <nav style="display: flex; align-items: center; gap: 24px;">
                 <ul class="nav-links">
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#deep-dives">Deep Dives</a></li>
@@ -37,6 +55,13 @@
                     <li><a href="#leadership">Leadership</a></li>
                     <li><a href="./resume.pdf" class="nav-resume-btn" download>Download CV</a></li>
                 </ul>
+                <div class="theme-switch-wrapper">
+                    <select id="theme-select" aria-label="Select Theme">
+                        <option value="system">🖥️ System</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="light">☀️ Light</option>
+                    </select>
+                </div>
             </nav>
         </div>
     </header>
@@ -104,11 +129,11 @@
                 <details class="case-card" open>
                     <summary class="case-summary">
                         <div class="case-title-area">
-                            <span class="case-title">15M Orders/Day Checkout Core Engine</span>
+                            <span class="case-title">High-Concurrency Cart &amp; Prepaid Payments Orchestration</span>
                             <div class="case-tags">
                                 <span class="pill-tag accent">Java</span>
-                                <span class="pill-tag accent">Kafka</span>
-                                <span class="pill-tag">Distributed Locks</span>
+                                <span class="pill-tag accent">Redis</span>
+                                <span class="pill-tag">Juspay</span>
                                 <span class="pill-tag">Twitter Snowflake</span>
                             </div>
                         </div>
@@ -117,16 +142,17 @@
                     <div class="case-content">
                         <div class="case-content-grid">
                             <div class="case-content-left">
-                                <p><strong>Background:</strong> At Meesho, peak mega-sale events drove transactional traffic up to <span class="metric-highlight">2,000 RPS</span>. The legacy synchronous checkout process faced latency bottlenecks and could not prevent inventory over-selling under high concurrency.</p>
-                                <p><strong>System Design:</strong> Developed an asynchronous checkout architecture. Migrated checkout processing from a blocking synchronous API to an event-driven flow using <strong>Kafka</strong> for order processing pipelines.</p>
-                                <p><strong>Concurrency & Integrity:</strong> Implemented a multi-layered check logic backed by a distributed locking mechanism on Redis to guarantee strict inventory consistency (preventing over-selling). Integrated a custom <strong>Twitter Snowflake</strong> ID generation service to issue globally unique, time-sortable Order IDs without database synchronization overhead.</p>
+                                <p><strong>Background:</strong> Collaborated on Meesho's Cart, Checkout, and Payments engineering team to scale transactions, reduce DB bottlenecks, and drive prepaid order growth.</p>
+                                <p><strong>Cart &amp; Checkout Optimizations:</strong> Migrated the high-traffic Temporary Cart service (handling 90% of overall cart events) to **Redis**. This mitigated massive database loads, decreased write latencies, and enabled cutting the relational database instance size in **half**. Re-architected checkout steps to enable a frictionless **instant checkout** experience, reducing order placement screens from 3 to 2.</p>
+                                <p><strong>Prepaid Payments &amp; Gateway Orchestration:</strong> Scaled prepaid payment share from **5% to 25%** by integrating **Juspay**, adding dynamic payment channels, and introducing Buy Now Pay Later (BNPL) routes. Developed unbundled backend features including **COD-Unbundling** (discounts on prepaid orders), **RTO-Unbundling** (discount reward/penalty logic based on customer Return-To-Origin risk), **loyalty coins**, and Meesho Wallet refund flows (integrating third-party wallet services at the backend).</p>
+                                <p><strong>Order ID Scale:</strong> Migrated the core order ID generation service to a distributed **Twitter Snowflake** implementation to guarantee globally unique, time-sortable IDs under peak loads.</p>
                             </div>
                             <div class="case-content-right">
-                                <h5>Metrics & Impact</h5>
+                                <h5>Metrics &amp; Impact</h5>
                                 <ul>
-                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Zero overselling incidents</span></li>
-                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>99.9%+ availability</span></li>
-                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>2,000 RPS transaction scale</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>5x prepaid payment share (5% to 25%)</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>50% DB instance size reduction</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>2-screen instant checkout flow</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -151,7 +177,7 @@
                         <div class="case-content-grid">
                             <div class="case-content-left">
                                 <p><strong>Background:</strong> Meesho's ranking and exploration engine caches large amounts of vector-like product feeds. As traffic grew, the Redis caching layer became a massive bottleneck and driving prohibitively high memory footprint and infrastructure costs.</p>
-                                <p><strong>Technical Strategy:</strong> Led the evaluation, profiling, and production migration from Redis to <strong>DragonflyDB</strong>, a multi-threaded Redis-compatible in-memory store. Evaluated thread synchronization, pipeline performance, and latency under peak load.</p>
+                                <p><strong>Technical Strategy:</strong> Led the evaluation, profiling, and production migration from Redis to <strong><a href="https://www.dragonflydb.io/blog/meesho-migrates-from-redis-to-dragonfly-cuts-latency-and-costs" target="_blank">DragonflyDB</a></strong>, a multi-threaded Redis-compatible in-memory store. Evaluated thread synchronization, pipeline performance, and latency under peak load.</p>
                                 <p><strong>Data Parity Validation:</strong> Implemented a zero-downtime migration protocol utilizing a shadow-write setup. Dual-wrote all cache transactions, validated data parity asynchronously, and shifted read traffic only after ensuring perfect key-value alignment.</p>
                             </div>
                             <div class="case-content-right">
@@ -171,31 +197,23 @@
                                 <pre class="mermaid">
 graph TD
     classDef main fill:#151b2d,stroke:#242c42,stroke-width:1px,color:#f3f4f6;
-    classDef realestate fill:#1e253c,stroke:#374363,stroke-width:1.5px,color:#fff;
+    classDef highlight fill:#6366f1,stroke:#818cf8,stroke-width:1.5px,color:#fff;
     classDef success fill:#10b981,stroke:#10b981,stroke-width:1.5px,color:#fff;
+    classDef orange fill:#f97316,stroke:#f97316,stroke-width:1.5px,color:#fff;
 
-    FA[Feed Aggregators]:::main --> PDP[PDP]:::realestate
-    FA --> HP[HomePage]:::realestate
-    FA --> SR[Search]:::realestate
-    FA --> CDP[CDP &amp; Collection]:::realestate
+    FA[Feed Aggregators]:::main --> RE[Real Estates<br/>PDP, Search, Homepage, CDP]:::highlight
     
-    PDP --> Feeds{Feeds}:::main
-    HP --> Feeds
-    SR --> Feeds
-    CDP --> Feeds
+    RE --> OF[Organic Feed]:::main
+    RE --> AF[Ads Feed]:::main
+    RE --> EF[Explore Feed]:::orange
     
-    Feeds --> OF[Organic Feed]:::main
-    Feeds --> AF[Ads Feed]:::main
-    Feeds --> NCF[New Catalog Feed]:::main
+    %% Only Explore Feed checks budget from Redis
+    EF -.->|Read: Is Budget Available?| RC[(Dragonfly / Redis Cluster)]:::success
     
-    PDP -.->|Is Budget Available?| RC[(Dragonfly / Redis Cluster)]:::success
-    HP -.->|Is Budget Available?| RC
-    SR -.->|Is Budget Available?| RC
-    CDP -.->|Is Budget Available?| RC
-    
+    %% Write flow
     FA -->|Kafka: Catalog_Seen| K[Kafka Topic]:::main
     K --> CTSC[Catalog Testing Service Consumer]:::main
-    CTSC -->|Write Flow:<br/>1. Insert new catalogs with view-budget<br/>2. Reduce view-budget| RC
+    CTSC -->|Write Flow:<br/>1. Insert catalogs with budget<br/>2. Reduce budget| RC
                                 </pre>
                             </div>
                             <div>
@@ -203,49 +221,35 @@ graph TD
                                 <pre class="mermaid">
 graph LR
     classDef main fill:#151b2d,stroke:#242c42,stroke-width:1px,color:#f3f4f6;
-    classDef sentinel fill:#6366f1,stroke:#818cf8,stroke-width:1px,color:#fff;
+    classDef sentinel fill:#6366f1,stroke:#818cf8,stroke-width:1.5px,color:#fff;
     classDef primary fill:#10b981,stroke:#10b981,stroke-width:1.5px,color:#fff;
     classDef replica fill:#1e253c,stroke:#374363,stroke-width:1.5px,color:#f3f4f6;
 
-    subgraph Sentinels [Sentinel Cluster]
-        S1[Redis Sentinel 1]:::sentinel
-        S2[Redis Sentinel 2]:::sentinel
-        S3[Redis Sentinel 3]:::sentinel
-    end
+    SC[Redis Sentinel Cluster<br/>3 Nodes Quorum]:::sentinel
     
-    S1 <--> S2
-    S2 <--> S3
-    
-    S1 --> Primary[Primary Node]:::primary
-    S2 --> Primary
-    S3 --> Primary
-    
-    S1 --> R1[Replica Node 1]:::replica
-    S2 --> R1
-    S3 --> R1
-    
-    S1 --> R2[Replica Node 2]:::replica
-    S2 --> R2
-    S3 --> R2
+    SC -.->|Monitors &amp; Failover| Primary[Primary Node]:::primary
+    SC -.->|Monitors| R1[Replica Node 1]:::replica
+    SC -.->|Monitors| R2[Replica Node 2]:::replica
 
-    Primary ==>|Replication| R1
-    Primary ==>|Replication| R2
+    Primary ==>|Master-Slave Replication| R1
+    Primary ==>|Master-Slave Replication| R2
                                 </pre>
                             </div>
                         </div>
                     </div>
                 </details>
 
-                <!-- Case Study 3 -->
+                <!-- Case Study 3: Keychain-OS -->
                 <details class="case-card">
                     <summary class="case-summary">
                         <div class="case-title-area">
-                            <span class="case-title">Multi-Tenant AI-Native ERP Architecture</span>
+                            <span class="case-title">Keychain-OS: AI-Powered Manufacturer ERP Architecture</span>
                             <div class="case-tags">
-                                <span class="pill-tag accent">Go (Golang)</span>
-                                <span class="pill-tag accent">PostgreSQL</span>
-                                <span class="pill-tag">SAML / OAuth SSO</span>
-                                <span class="pill-tag">Tenant Isolation</span>
+                                <span class="pill-tag accent">Java</span>
+                                <span class="pill-tag accent">Spring Boot</span>
+                                <span class="pill-tag">PostgreSQL</span>
+                                <span class="pill-tag">DMS</span>
+                                <span class="pill-tag">Inventory &amp; Audit</span>
                             </div>
                         </div>
                         <svg class="case-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -253,16 +257,50 @@ graph LR
                     <div class="case-content">
                         <div class="case-content-grid">
                             <div class="case-content-left">
-                                <p><strong>Background:</strong> Building Keychain-OS and Keychain360 from the ground up required a secure, highly scalable microservices architecture that complies with enterprise requirements for data isolation, SSO, and audit tracking.</p>
-                                <p><strong>Database Partitioning:</strong> Implemented a schema-per-tenant isolation model on <strong>PostgreSQL</strong>. Programmatically generated schema configurations at tenant onboarding time to prevent cross-tenant data leaks and allow customized compliance rules.</p>
-                                <p><strong>Enterprise SSO & Compliance:</strong> Built and shipped identity federation integration (SAML 2.0 & OAuth) supporting secure single sign-on for global supply-chain brands. Constructed fine-grained Role-Based Access Control (RBAC) and immutable audit log pipelines to satisfy <strong>SOC2</strong> security compliance standards.</p>
+                                <p><strong>Background:</strong> Building a secure, highly compliant multi-tenant cloud-ERP to modernize CPG manufacturing processes, inventory controls, and procurement workflows.</p>
+                                <p><strong>Food Safety &amp; Audit Tracing:</strong> Designed and implemented audit logging systems to record critical food safety events natively. Integrated tracing pipelines aligned with compliance benchmarks (FSMA 204, SQF) to support quick audit reports and verification runs.</p>
+                                <p><strong>Document Management (DMS) &amp; Inventory:</strong> Built a metadata-indexed document management system to ingest and catalog product specifications, safety certificates, and supplier documentation. Engineered procurement microservices managing raw ingredient inventory levels, order thresholds, and vendor replenishment schedules.</p>
                             </div>
                             <div class="case-content-right">
-                                <h5>Metrics & Impact</h5>
+                                <h5>Metrics &amp; Compliance</h5>
                                 <ul>
-                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>SOC2-ready security infrastructure</span></li>
-                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Strict logical data isolation</span></li>
-                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Seamless SAML brand onboarding</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>FSMA 204-ready audit logs</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Secure multi-tenant DMS separation</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Consistent raw materials replenishment</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Case Study 4: Keychain360 -->
+                <details class="case-card">
+                    <summary class="case-summary">
+                        <div class="case-title-area">
+                            <span class="case-title">Keychain360: Retailer Supply Chain Visibility Platform</span>
+                            <div class="case-tags">
+                                <span class="pill-tag accent">Java</span>
+                                <span class="pill-tag accent">Spring Boot</span>
+                                <span class="pill-tag">SAML / OAuth SSO</span>
+                                <span class="pill-tag">Sourcing Traceability</span>
+                                <span class="pill-tag">Risk Modeling</span>
+                            </div>
+                        </div>
+                        <svg class="case-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="case-content">
+                        <div class="case-content-grid">
+                            <div class="case-content-left">
+                                <p><strong>Background:</strong> Building a brand-facing SaaS platform for supply chain transparency, private label lifecycle management, and vendor risk analysis.</p>
+                                <p><strong>PLM Workflows &amp; Visibility:</strong> Architected state-machine engines mapping private-label product states from bid onboarding to regulatory sign-off. Built supply chain aggregation modules summarizing brand categories, vendor portfolios, and active products with static recommendation filters indicating vendor consolidation and supply chain risk thresholds.</p>
+                                <p><strong>SSO &amp; Sourcing Traceability:</strong> Shipped federated single sign-on (SAML 2.0 &amp; OAuth) and RBAC configurations to support onboarding of enterprise private-label brands. Designed a multi-tier sourcing traceability graph mapping the supplier tree, allowing retailers to trace the raw-material vendors their manufacturing partners source from.</p>
+                            </div>
+                            <div class="case-content-right">
+                                <h5>Metrics &amp; Compliance</h5>
+                                <ul>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Multi-tier raw materials tracing</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>SAML enterprise SSO integration</span></li>
+                                    <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Consolidation &amp; risk advisory filters</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -288,7 +326,7 @@ graph LR
                     <ul class="job-desc">
                         <li>Founding backend lead for <strong>Keychain-OS</strong> (cloud ERP) and <strong>Keychain360</strong> (Supply Chain Visibility platform), architecting a secure, multi-tenant backend built for PLM workflows, supplier analytics, and traceability.</li>
                         <li>Designed and shipped enterprise-grade **SAML 2.0 & OAuth SSO** identity federation, role-based access control (RBAC), and immutable audit logs ensuring <strong>SOC2 compliance readiness</strong>.</li>
-                        <li>Built custom backend workflow engines integrated with LLMs to automate supplier intelligence, ingredient compliance onboarding, and document parsing.</li>
+                        <li>Part of the core engineering team developing Keychain's Python-based AI Product Generator; integrated LLM APIs and utilized **Langfuse** for prompt versioning, structured tracing, and cost/latency observability.</li>
                         <li>Defined the technical roadmap and led execution for a <strong>7-engineer team</strong>; established engineering standards, microservice design reviews, and high code quality thresholds.</li>
                         <li>Successfully managed engineering deliverables across distributed teams in **US and India time zones**, proving strong remote execution and cross-continental alignment.</li>
                     </ul>
@@ -304,7 +342,7 @@ graph LR
                     <div class="job-role">SDE-3 (Jul 2022 – Feb 2025) &bull; SDE-2 (Mar 2021 – Jun 2022)</div>
                     <ul class="job-desc">
                         <li>Architected checkout and cart pipelines that supported up to <span class="metric-highlight">15M+ transactions/day</span> and 10M DAU at a peak traffic of <span class="metric-highlight">2,000 RPS</span> while maintaining <span class="metric-highlight">99.9%+ uptime</span>.</li>
-                        <li>Led migration of Explore feed ranking/personalization store to **Dragonfly** (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
+                        <li>Led migration of Explore feed ranking/personalization store to **<a href="https://www.dragonflydb.io/blog/meesho-migrates-from-redis-to-dragonfly-cuts-latency-and-costs" target="_blank">Dragonfly</a>** (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
                         <li>Built distributed backend systems including a Redis-backed cart microservice managing <span class="metric-highlight">200K+ concurrent carts</span>, a Multi-Supplier Cart engine, and a custom **Twitter Snowflake** ID generator.</li>
                         <li>Directed the Prepaid Payments pod (4 SDEs); redesigned transaction gateways and optimized bank-offers orchestration to lift Meesho's prepaid checkout share from <strong>5% to 20%</strong>.</li>
                         <li>Managed zero-downtime microservices container infrastructure migrations across cloud platforms: <strong>AWS EC2 &rarr; AWS EKS &rarr; Google GKE</strong>.</li>
@@ -351,12 +389,13 @@ graph LR
             <div class="skills-wrapper">
                 
                 <div class="skills-category">
-                    <h4>Core Backend Languages</h4>
+                    <h4>Backend Languages</h4>
                     <div class="skills-tags-container">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Go (Golang)</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL (PostgreSQL / MySQL)</span>
+                        <span class="skill-tag" style="border-color: var(--primary); color: var(--primary-light);">Java (Core)</span>
+                        <span class="skill-tag" style="border-color: var(--primary); color: var(--primary-light);">SQL (Core)</span>
+                        <span class="skill-tag">Go (Familiar)</span>
+                        <span class="skill-tag">Python (Familiar)</span>
+                        <span class="skill-tag">PHP (Familiar)</span>
                     </div>
                 </div>
 
@@ -393,6 +432,7 @@ graph LR
                         <span class="skill-tag">gRPC & Protobuf</span>
                         <span class="skill-tag">SAML 2.0 / OAuth SSO</span>
                         <span class="skill-tag">SOC2 Compliance Readiness</span>
+                        <span class="skill-tag">Langfuse (LLM Observability)</span>
                         <span class="skill-tag">TDD & CI/CD Pipelines</span>
                     </div>
                 </div>
@@ -509,6 +549,42 @@ graph LR
 
         window.addEventListener('scroll', highlightNav);
         window.addEventListener('load', highlightNav);
+
+        // Theme Switcher Controller Logic
+        const themeSelect = document.getElementById('theme-select');
+        const htmlEl = document.documentElement;
+
+        function applyTheme(theme) {
+            if (theme === 'system') {
+                htmlEl.removeAttribute('data-theme');
+            } else {
+                htmlEl.setAttribute('data-theme', theme);
+            }
+            window.dispatchEvent(new Event('resize'));
+        }
+
+        // Initialize select dropdown state
+        const initialTheme = localStorage.getItem('theme') || 'system';
+        themeSelect.value = initialTheme;
+        applyTheme(initialTheme);
+
+        themeSelect.addEventListener('change', (e) => {
+            const selectedTheme = e.target.value;
+            localStorage.setItem('theme', selectedTheme);
+            applyTheme(selectedTheme);
+            
+            // Reload page to let Mermaid re-evaluate shapes and colors under the new theme
+            window.location.reload();
+        });
+
+        // Listen for OS theme updates in real-time
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            const currentSetting = localStorage.getItem('theme') || 'system';
+            if (currentSetting === 'system') {
+                applyTheme('system');
+                window.location.reload();
+            }
+        });
     </script>
 
 </body>
