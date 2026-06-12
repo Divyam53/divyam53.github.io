@@ -102,7 +102,7 @@
             <!-- Key Backend Metric Stats -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">15M+</div>
+                    <div class="stat-number">16M</div>
                     <div class="stat-label">Daily Peak Orders</div>
                 </div>
                 <div class="stat-card">
@@ -332,21 +332,37 @@ graph LR
                     </ul>
                 </div>
 
-                <!-- Meesho -->
+                <!-- Meesho SDE-3 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-header">
-                        <div class="company-title">Meesho <span>— High-Scale Social Commerce Platform</span></div>
-                        <span class="job-date">Mar 2021 – Feb 2025</span>
+                        <div class="company-title">Meesho <span>— India's largest social commerce platform</span></div>
+                        <span class="job-date">Jul 2022 – Feb 2025</span>
                     </div>
-                    <div class="job-role">SDE-3 (Jul 2022 – Feb 2025) &bull; SDE-2 (Mar 2021 – Jun 2022)</div>
+                    <div class="job-role">SDE-3 / Tech Lead</div>
                     <ul class="job-desc">
-                        <li>Architected checkout and cart pipelines that supported up to <span class="metric-highlight">15M+ transactions/day</span> and 10M DAU at a peak traffic of <span class="metric-highlight">2,000 RPS</span> while maintaining <span class="metric-highlight">99.9%+ uptime</span>.</li>
-                        <li>Led migration of Explore feed ranking/personalization store to **<a href="https://www.dragonflydb.io/blog/meesho-migrates-from-redis-to-dragonfly-cuts-latency-and-costs" target="_blank">Dragonfly</a>** (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
-                        <li>Built distributed backend systems including a Redis-backed cart microservice managing <span class="metric-highlight">200K+ concurrent carts</span>, a Multi-Supplier Cart engine, and a custom **Twitter Snowflake** ID generator.</li>
-                        <li>Directed the Prepaid Payments pod (4 SDEs); redesigned transaction gateways and optimized bank-offers orchestration to lift Meesho's prepaid checkout share from <strong>5% to 20%</strong>.</li>
-                        <li>Managed zero-downtime microservices container infrastructure migrations across cloud platforms: <strong>AWS EC2 &rarr; AWS EKS &rarr; Google GKE</strong>.</li>
-                        <li>Acted as primary on-call Lead and War-Room Incident Commander for mega-sale days; owned system health, latency SLOs, and root-cause analyses (RCAs).</li>
+                        <li>Migrated the Explore feed ranking/personalization cache store from Redis to **<a href="https://www.dragonflydb.io/blog/meesho-migrates-from-redis-to-dragonfly-cuts-latency-and-costs" target="_blank">Dragonfly</a>** (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
+                        <li>Migrated the high-traffic Temporary Cart service (comprising 90% of overall carts and managing <span class="metric-highlight">200K+ concurrent carts</span>) to **Redis**, reducing write latencies and database load, allowing us to cut our main database instance size in **half**.</li>
+                        <li>Lifted prepaid payments checkout share from **12% to 25%** by introducing BNPL (Buy Now Pay Later) integrations and Meesho Wallet refunds (integrating third-party wallet services at the backend).</li>
+                        <li>Designed and launched the backend reward logic for **loyalty coins** to directly drive customer retention and order volume growth.</li>
+                        <li>Managed zero-downtime microservices container infrastructure migrations across cloud platforms: **AWS EC2 &rarr; AWS EKS &rarr; Google GKE**.</li>
+                        <li>Acted as primary on-call Lead and War-Room Incident Commander for high-scale sale events, successfully scaling checkout systems to handle <span class="metric-highlight">16M orders on day one</span> of the annual Diwali sale with 99.9%+ uptime.</li>
+                    </ul>
+                </div>
+
+                <!-- Meesho SDE-2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div class="company-title">Meesho <span>— India's largest social commerce platform</span></div>
+                        <span class="job-date">Mar 2021 – Jun 2022</span>
+                    </div>
+                    <div class="job-role">SDE-2</div>
+                    <ul class="job-desc">
+                        <li>Integrated **Juspay** payment aggregator, enabling the operations team to configure gateway routing, add multiple dynamic payment methods, and allow gateway switching on the fly.</li>
+                        <li>Lifted prepaid payments checkout share from **5% to 12%** via payment integrations and building backend logic for **COD-Unbundling** (discounts on prepaid payments).</li>
+                        <li>Architected and shipped the **Multi-Supplier Cart** engine, allowing users to place orders from multiple suppliers simultaneously (previously restricted to a single supplier).</li>
+                        <li>Developed and scaled distributed backend systems supporting transactions at marketplace scale, utilizing **Twitter Snowflake** for global order ID generation.</li>
                     </ul>
                 </div>
 
@@ -354,7 +370,7 @@ graph LR
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-header">
-                        <div class="company-title">Milkbasket <span>— Daily Micro-Delivery Grocery App</span></div>
+                        <div class="company-title">Milkbasket <span>— A leading daily micro-delivery grocery subscription service</span></div>
                         <span class="job-date">Sep 2019 – Mar 2021</span>
                     </div>
                     <div class="job-role">SDE-2 &bull; SDE-1</div>
