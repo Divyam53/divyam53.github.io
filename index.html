@@ -143,9 +143,9 @@
                         <div class="case-content-grid">
                             <div class="case-content-left">
                                 <p><strong>Background:</strong> Collaborated on Meesho's Cart, Checkout, and Payments engineering team to scale transactions, reduce DB bottlenecks, and drive prepaid order growth.</p>
-                                <p><strong>Cart &amp; Checkout Optimizations:</strong> Migrated the high-traffic Temporary Cart service (handling 90% of overall cart events) to **Redis**. This mitigated massive database loads, decreased write latencies, and enabled cutting the relational database instance size in **half**. Re-architected checkout steps to enable a frictionless **instant checkout** experience, reducing order placement screens from 3 to 2.</p>
-                                <p><strong>Prepaid Payments &amp; Gateway Orchestration:</strong> Scaled prepaid payment share from **5% to 25%** by integrating **Juspay**, adding dynamic payment channels, and introducing Buy Now Pay Later (BNPL) routes. Developed unbundled backend features including **COD-Unbundling** (discounts on prepaid orders), **RTO-Unbundling** (discount reward/penalty logic based on customer Return-To-Origin risk), **loyalty coins**, and Meesho Wallet refund flows (integrating third-party wallet services at the backend).</p>
-                                <p><strong>Order ID Scale:</strong> Migrated the core order ID generation service to a distributed **Twitter Snowflake** implementation to guarantee globally unique, time-sortable IDs under peak loads.</p>
+                                <p><strong>Cart &amp; Checkout Optimizations:</strong> Migrated the high-traffic Temporary Cart service (handling 90% of overall cart events) to <strong>Redis</strong>. This mitigated massive database loads, decreased write latencies, and enabled cutting the relational database instance size in <strong>half</strong>. Re-architected checkout steps to enable a frictionless <strong>instant checkout</strong> experience, reducing order placement screens from 3 to 2.</p>
+                                <p><strong>Prepaid Payments &amp; Gateway Orchestration:</strong> Scaled prepaid payment share from <strong>5% to 25%</strong> by integrating <strong>Juspay</strong>, adding dynamic payment channels, and introducing Buy Now Pay Later (BNPL) routes. Developed unbundled backend features including <strong>COD-Unbundling</strong> (discounts on prepaid orders), <strong>RTO-Unbundling</strong> (discount reward/penalty logic based on customer Return-To-Origin risk), <strong>loyalty coins</strong>, and Meesho Wallet refund flows (integrating third-party wallet services at the backend).</p>
+                                <p><strong>Order ID Scale:</strong> Migrated the core order ID generation service to a distributed <strong>Twitter Snowflake</strong> implementation to guarantee globally unique, time-sortable IDs under peak loads.</p>
                             </div>
                             <div class="case-content-right">
                                 <h5>Metrics &amp; Impact</h5>
@@ -325,10 +325,10 @@ graph LR
                     <div class="job-role">Senior Backend Engineer / Tech Lead</div>
                     <ul class="job-desc">
                         <li>Founding backend lead for <strong>Keychain-OS</strong> (cloud ERP) and <strong>Keychain360</strong> (Supply Chain Visibility platform), architecting a secure, multi-tenant backend built for PLM workflows, supplier analytics, and traceability.</li>
-                        <li>Designed and shipped enterprise-grade **SAML 2.0 & OAuth SSO** identity federation, role-based access control (RBAC), and immutable audit logs ensuring <strong>SOC2 compliance readiness</strong>.</li>
-                        <li>Part of the core engineering team developing Keychain's Python-based AI Product Generator; integrated LLM APIs and utilized **Langfuse** for prompt versioning, structured tracing, and cost/latency observability.</li>
+                        <li>Designed and shipped enterprise-grade <strong>SAML 2.0 &amp; OAuth SSO</strong> identity federation, role-based access control (RBAC), and immutable audit logs ensuring <strong>SOC2 compliance readiness</strong>.</li>
+                        <li>Part of the core engineering team developing Keychain's Python-based AI Product Generator; integrated LLM APIs and utilized <strong>Langfuse</strong> for prompt versioning, structured tracing, and cost/latency observability.</li>
                         <li>Defined the technical roadmap and led execution for a <strong>7-engineer team</strong>; established engineering standards, microservice design reviews, and high code quality thresholds.</li>
-                        <li>Successfully managed engineering deliverables across distributed teams in **US and India time zones**, proving strong remote execution and cross-continental alignment.</li>
+                        <li>Successfully managed engineering deliverables across distributed teams in <strong>US and India time zones</strong>, proving strong remote execution and cross-continental alignment.</li>
                     </ul>
                 </div>
 
@@ -341,11 +341,11 @@ graph LR
                     </div>
                     <div class="job-role">SDE-3 / Tech Lead</div>
                     <ul class="job-desc">
-                        <li>Migrated the Explore feed ranking/personalization cache store from Redis to **<a href="https://www.dragonflydb.io/blog/meesho-migrates-from-redis-to-dragonfly-cuts-latency-and-costs" target="_blank">Dragonfly</a>** (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
-                        <li>Migrated the high-traffic Temporary Cart service (comprising 90% of overall carts and managing <span class="metric-highlight">200K+ concurrent carts</span>) to **Redis**, reducing write latencies and database load, allowing us to cut our main database instance size in **half**.</li>
-                        <li>Lifted prepaid payments checkout share from **12% to 25%** by introducing BNPL (Buy Now Pay Later) integrations and Meesho Wallet refunds (integrating third-party wallet services at the backend).</li>
-                        <li>Designed and launched the backend reward logic for **loyalty coins** to directly drive customer retention and order volume growth.</li>
-                        <li>Managed zero-downtime microservices container infrastructure migrations across cloud platforms: **AWS EC2 &rarr; AWS EKS &rarr; Google GKE**.</li>
+                        <li>Migrated the Explore feed ranking/personalization cache store from Redis to <strong><a href="https://www.dragonflydb.io/blog/meesho-migrates-from-redis-to-dragonfly-cuts-latency-and-costs" target="_blank">Dragonfly</a></strong> (Redis-compatible) supporting <span class="metric-highlight">3M+ IOPS</span>, cutting cache infrastructure costs by <span class="metric-highlight">90% ($360K saved annually)</span>.</li>
+                        <li>Migrated the high-traffic Temporary Cart service (comprising 90% of overall carts and managing <span class="metric-highlight">200K+ concurrent carts</span>) to <strong>Redis</strong>, reducing write latencies and database load, allowing us to cut our main database instance size in <strong>half</strong>.</li>
+                        <li>Lifted prepaid payments checkout share from <strong>12% to 25%</strong> by introducing BNPL (Buy Now Pay Later) integrations and Meesho Wallet refunds (integrating third-party wallet services at the backend).</li>
+                        <li>Designed and launched the backend reward logic for <strong>loyalty coins</strong> to directly drive customer retention and order volume growth.</li>
+                        <li>Managed zero-downtime microservices container infrastructure migrations across cloud platforms: <strong>AWS EC2 &rarr; AWS EKS &rarr; Google GKE</strong>.</li>
                         <li>Acted as primary on-call Lead and War-Room Incident Commander for high-scale sale events, successfully scaling checkout systems to handle <span class="metric-highlight">16M orders on day one</span> of the annual Diwali sale with 99.9%+ uptime.</li>
                     </ul>
                 </div>
@@ -359,10 +359,10 @@ graph LR
                     </div>
                     <div class="job-role">SDE-2</div>
                     <ul class="job-desc">
-                        <li>Integrated **Juspay** payment aggregator, enabling the operations team to configure gateway routing, add multiple dynamic payment methods, and allow gateway switching on the fly.</li>
-                        <li>Lifted prepaid payments checkout share from **5% to 12%** via payment integrations and building backend logic for **COD-Unbundling** (discounts on prepaid payments).</li>
-                        <li>Architected and shipped the **Multi-Supplier Cart** engine, allowing users to place orders from multiple suppliers simultaneously (previously restricted to a single supplier).</li>
-                        <li>Developed and scaled distributed backend systems supporting transactions at marketplace scale, utilizing **Twitter Snowflake** for global order ID generation.</li>
+                        <li>Integrated <strong>Juspay</strong> payment aggregator, enabling the operations team to configure gateway routing, add multiple dynamic payment methods, and allow gateway switching on the fly.</li>
+                        <li>Lifted prepaid payments checkout share from <strong>5% to 12%</strong> via payment integrations and building backend logic for <strong>COD-Unbundling</strong> (discounts on prepaid payments).</li>
+                        <li>Architected and shipped the <strong>Multi-Supplier Cart</strong> engine, allowing users to place orders from multiple suppliers simultaneously (previously restricted to a single supplier).</li>
+                        <li>Developed and scaled distributed backend systems supporting transactions at marketplace scale, utilizing <strong>Twitter Snowflake</strong> for global order ID generation.</li>
                     </ul>
                 </div>
 
@@ -376,7 +376,7 @@ graph LR
                     <div class="job-role">SDE-2 &bull; SDE-1</div>
                     <ul class="job-desc">
                         <li>Deconstructed PHP monolith payment processing module, rebuilding it into a performant <strong>Java microservices platform</strong>; integrated payments via Juspay, AutoPay, wallets, and refunds orchestration.</li>
-                        <li>Optimized backend bottlenecks, reducing **p99 API latencies by 50%** and shrinking critical scheduled batch runtimes from <strong>60 minutes to 2 minutes</strong>.</li>
+                        <li>Optimized backend bottlenecks, reducing <strong>p99 API latencies by 50%</strong> and shrinking critical scheduled batch runtimes from <strong>60 minutes to 2 minutes</strong>.</li>
                         <li>Redesigned billing recharges and transactional flows, slashing production bugs from 1,000+ per month to <span class="metric-highlight">&lt;10</span>.</li>
                         <li>Built business-driving subscription features (Membership, Value Pass, Impulse Buy) which directly grew cart conversions.</li>
                     </ul>
